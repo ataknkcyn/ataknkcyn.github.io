@@ -1,0 +1,10 @@
+[
+    {
+        "baslik": "lorem deneme 123",
+        "icerik" : "icerik 1"
+    },
+    {
+        "baslik":"baslik2",
+        "icerik" : "icerik 2 "
+    }
+]
