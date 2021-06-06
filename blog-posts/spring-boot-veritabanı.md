@@ -1,6 +1,6 @@
-# Spring-Boot ile Veri Tabanı İşlemleri
+# Spring-Boot ile Veritabanı İşlemleri
 
-Merhaba, bu yazımda sizlerle spring-boot üzerinde MySQL kullanarak nasıl basit veri tabanı işlemleri gerçekleştirebileceğimizi anlatmaya çalışıcam.
+Merhaba, bu yazımda spring-boot üzerinde MySQL kullanarak nasıl basit veritabanı işlemleri gerçekleştirebileceğimizi anlatmaya çalışıcam.
 
 ## Gereksinimler
 [Spring Initializr](https://start.spring.io/) üzerinden gerekli bağımlılıklarımızı eklememiz gerekiyor. Eklememiz gereken bağımlılıklar **Spring Web, Spring Data JPA, MySQL Driver, Lombok.** Örnek olarak aşağıdaki resime bakabilirsiniz. 
