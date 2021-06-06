@@ -1,14 +1,7 @@
 [
     {
-        "baslik": "lorem deneme 123",
-        "file_path" : ""
-    },
-    {
-        "baslik":"baslik2",
-        "file_path" : ""
-    },
-    {
-        "baslik":"open-location-code",
-        "file_path" : "xx.md"
+        "baslik": "Spring-boot Veri Tabani İşlemleri 06.06.2021 ",
+        "file_path" : "spring-boot-veritabanı.md"
     }
+    
 ]
