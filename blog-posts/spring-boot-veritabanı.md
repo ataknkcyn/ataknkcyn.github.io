@@ -3,9 +3,7 @@
 Merhaba, bu yazımda spring-boot üzerinde MySQL kullanarak nasıl basit veritabanı işlemleri gerçekleştirebileceğimizi anlatmaya çalışıcam.
 
 ## Gereksinimler
-[Spring Initializr](https://start.spring.io/) üzerinden gerekli bağımlılıklarımızı eklememiz gerekiyor. Eklememiz gereken bağımlılıklar **Spring Web, Spring Data JPA, MySQL Driver, Lombok.** Örnek olarak aşağıdaki resime bakabilirsiniz. 
-
-![enter image description here](https://lh3.googleusercontent.com/2mNHK5K9Z-w9ftygAGLO54u6ZxGx7MpX_6_XW3iA8lqjNQ1N7z0GCKZHJ9K2-ZhdZvO7yp3yFc5o_AiJ6Wj9291Be-umBLRmyvgLy4xdrRzqfg3MPFVD9ftXU6F-98tgz3ohUp2Hu10Iy_4RCB5aqHP044oRM3AYtKmXLHz5XmDEO5dOox-gP4Wph2FtcPxaoilCoiHKty-tOLgf8bah-N4RLQeHg5homucRtMYTn-piexsEOuTWBPXHDOZHxGuwpUK9LHghr3DDWv-CTtCcXcaboY1mmNvCgSNqC6B3ZOnpBRc6LtBVnPHC6kB48SEUpK0VLASPDlo0SlAgoxFoljlwaByqm_gU_nNZOerKdGmCg0F3DZYAIg97r7SU8xfHWb-5fWglQYmalrdajtDiPcBMiEq8hvyF7yUijiMfGJhP191GI2eH6YyDslslqryUdQKyttjkZS0zSShgyEzidUb_EOTfZPrKHLnAYWvmhA2f-xCUg6S3db8Ey72SjBnYrJfkndTps78yPXEpsUFTni1KaQrs75FDLPaJ54UyHlrcZHBHKTb-rjtnJTSk_5od8gC8YfsTgFrfWBRtHrowNGGiwWfLGdELHB2usYskpvWW_mKWbasPnEj-PR6hSiR73JS2-LoM5rWZdj1k7HCKLnSP6FsloBeYKoDY_b6Tju1a6shYnDOgrE4b0RS7cIzmnTKfVgorUFdmO3OOfo2o1Oc=w516-h268-no?authuser=0)
+[Spring Initializr](https://start.spring.io/) üzerinden gerekli bağımlılıklarımızı eklememiz gerekiyor. Eklememiz gereken bağımlılıklar **Spring Web, Spring Data JPA, MySQL Driver, Lombok.** 
 
 
 ## Dosya Yapısı
