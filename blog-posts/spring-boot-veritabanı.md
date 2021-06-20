@@ -44,94 +44,93 @@ application.properties dosyamız ile oluşturduğumuz veritabanımızı projemiz
 
 Model yapısı bizim için nesnenin veritabanında tanımlanmış tüm özelliklerini barındırması gereken bir yapıdır. İstenirse projenin yapısı ve gidişatı gibi durumlarda farklı özellikler eklenebilir fakat bizim için aşağıdaki kısım şu an için yeterli olacaktır.
 **Lombok** bağımlılığı sayesinde ekstra yazmamız gereken methodların(get,set) bu şekilde önüne geçerek kısa ve okunaklı bir kod yazmamıza yardım ediyor.
+```java
+package springboot.crud.model;  
+ 
+import lombok.Getter;  
+import lombok.Setter;  
+import lombok.ToString;  	     
+ 
+import javax.persistence.*;  
+import java.sql.Timestamp;  
+ 
+@Entity  
+@Getter  
+@Setter  
+@ToString  
+public class kitaplar {  
+	@Id  
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  
+	private Long id;  
 
-        package springboot.crud.model;  
-      
-	    import lombok.Getter;  
-	    import lombok.Setter;  
-	    import lombok.ToString;  	     
-      
-	    import javax.persistence.*;  
-	    import java.sql.Timestamp;  
-      
-	    @Entity  
-	    @Getter  
-	    @Setter  
-	    @ToString  
-	    public class kitaplar {  
-	        @Id  
-		    @GeneratedValue(strategy = GenerationType.IDENTITY)  
-	        private Long id;  
-	      
-	        @Column  
-		    private String kitap_ismi;  
-	      
-	        @Column  
-		    private String yazar;  
-	      
-	        @Column  
-		    private Timestamp eklenme_tarihi;  
-    }
+	@Column  
+	private String kitap_ismi;  
 
+	@Column  
+	private String yazar;  
+
+	@Column  
+	private Timestamp eklenme_tarihi;  
+}
+```
 ## Repository Oluşturulması
 
 Bu projede JpaRepository kullanarak sorgu işlemlerinin büyük bir çoğunluğundan kurtulmak istedim. Eğer dökümantasyonunu inceleyip farklı sorgu yapılarını vs. görmek isterseniz [JPA Repositories](https://docs.spring.io/spring-data/jpa/docs/1.5.0.RELEASE/reference/html/jpa.repositories.html) kısmına gidebilirsiniz.
 
-   
-
-     package springboot.crud.repo;  
-      
-    import org.springframework.data.jpa.repository.JpaRepository;       
-    import springboot.crud.model.kitaplar;  
-      
-    @Repository  
-    public interface KitapRepository extends JpaRepository<kitaplar, Long> {  
-      
-    }
-
+```java
+package springboot.crud.repo;  
+  
+import org.springframework.data.jpa.repository.JpaRepository;       
+import springboot.crud.model.kitaplar;  
+  
+@Repository  
+public interface KitapRepository extends JpaRepository<kitaplar, Long> {  
+  
+}
+```
 
 ## Controller Oluşturulması
 
 Bu yazıda basit işlemler yaptığımızdan dolayı service kısmını ekleyip işleri olduğundan daha karmaşık hale getirmek istemedim. Service yapısının gereksiz olduğu anlamına gelmiyor. İnternetten biraz araştırılıp service yapısının hangi durumlarda kullanıldığını rahatça görebilirsiniz. 
-
-    package springboot.crud.controller;  
-      
-    import lombok.RequiredArgsConstructor;  
-    import org.springframework.web.bind.annotation.*;  
-    import springboot.crud.model.kitaplar;  
-    import springboot.crud.repo.KitapRepository;  
-      
-    import java.util.List;  
-    import java.util.Optional;  
-      
-    @RestController  
-    @RequestMapping("/")  
-    @RequiredArgsConstructor  
-    public class kitapController {  
-      
-        private final KitapRepository kitapRepository;  
-      
-        @GetMapping("/list")  
-        public List<kitaplar> kitapList() {  
-            return kitapRepository.findAll();  
-        }  
-      
-        @GetMapping("/list/{id}")  
-        public Optional<kitaplar> id_kitap_getir(@PathVariable Long id) {  
-            return kitapRepository.findById(id);  
-        }  
-      
-        @PostMapping("/ekle")  
-        public kitaplar kitapEkle(kitaplar ekle_kitap){  
-            return kitapRepository.save(ekle_kitap);  
-        }  
-      
-        @PostMapping("/sil/{id}")  
-        public boolean kitapSil(@PathVariable Long id){  
-            kitapRepository.deleteById(id);  
-            return true;  
-        }  
-      
-    }
-
+```java
+package springboot.crud.controller;  
+  
+import lombok.RequiredArgsConstructor;  
+import org.springframework.web.bind.annotation.*;  
+import springboot.crud.model.kitaplar;  
+import springboot.crud.repo.KitapRepository;  
+  
+import java.util.List;  
+import java.util.Optional;  
+  
+@RestController  
+@RequestMapping("/")  
+@RequiredArgsConstructor  
+public class kitapController {  
+  
+    private final KitapRepository kitapRepository;  
+  
+    @GetMapping("/list")  
+    public List<kitaplar> kitapList() {  
+        return kitapRepository.findAll();  
+    }  
+  
+    @GetMapping("/list/{id}")  
+    public Optional<kitaplar> id_kitap_getir(@PathVariable Long id) {  
+        return kitapRepository.findById(id);  
+    }  
+  
+    @PostMapping("/ekle")  
+    public kitaplar kitapEkle(kitaplar ekle_kitap){  
+        return kitapRepository.save(ekle_kitap);  
+    }  
+  
+    @PostMapping("/sil/{id}")  
+    public boolean kitapSil(@PathVariable Long id){  
+        kitapRepository.deleteById(id);  
+        return true;  
+    }  
+  
+}
+```
 
